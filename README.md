@@ -9,7 +9,10 @@ pip install synapticsync
 ```
 
 # How to contribute:
-Clone this repository and create a new branch for your changes:
+Clone this repository and create a new branch for your changes. 
+
+The following commands will set up the environment you need to contribute.
+
 ```bash
 cd <path/to/cloned/repository/SynapticSync>
 conda env create -f environment.yml
