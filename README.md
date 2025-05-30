@@ -5,15 +5,15 @@ This repository holds code to conduct ephys analysis on data files that come fro
 # How to contribute:
 Clone this repository and create a new branch for your changes:
 ```bash
-cd <path/to/cloned/repository/IBBI>
+cd <path/to/cloned/repository/SynapticSync>
 conda env create -f environment.yml
-conda activate IBBI
+conda activate synapticsync
 poetry config virtualenvs.create false --local
 poetry install
 poetry run pre-commit install
 ```
 
-To add a new dependency for the IBBI package use:
+To add a new dependency for the SynapticSync package use:
 ```bash
 poetry add <new-package-name>
 ```
