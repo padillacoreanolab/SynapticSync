@@ -1,0 +1,24 @@
+site_name: SynapticSync Documentation
+
+theme:
+  name: material # This theme requires "mkdocs-material" package
+
+nav:
+  - Home: index.md
+  - 'User Guide':
+    - 'Installation': 'guide/installation.md'
+    - 'LFP Analysis': 'guide/lfp_analysis.md'
+    # Add more pages relevant to SynapticSync here
+  - 'API Reference': 'api.md'
+  # - 'Examples': 'examples.md'
+
+plugins:
+  - search
+  # For API documentation from docstrings (optional, requires mkdocstrings):
+  # - mkdocstrings:
+  #     handlers:
+  #       python:
+  #         options:
+  #           docstring_style: google # or numpy, sphinx
+  #           show_root_heading: true
+  #           show_source: true

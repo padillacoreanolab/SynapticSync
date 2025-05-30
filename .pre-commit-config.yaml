@@ -1,0 +1,23 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0 # Or check for the latest version
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-yaml
+    -   id: check-added-large-files
+-   repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: 'v0.4.4' # Check for the latest ruff version on its GitHub page
+    hooks:
+    -   id: ruff
+        args: [--fix, --exit-non-zero-on-fix]
+    -   id: ruff-format
+-   repo: local
+    hooks:
+    -   id: pyright-poetry # You can name this id anything unique
+        name: pyright (poetry)
+        entry: poetry run pyright
+        language: system  # 'system' tells pre-commit to find 'poetry' in your system PATH
+        types: [python]
+        pass_filenames: false
+        # Ensure pyright is a dev dependency in your pyproject.toml, which it should be.

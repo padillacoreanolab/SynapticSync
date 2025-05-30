@@ -1,3 +1,13 @@
+# Ignore all test_data directories within the tests structure
+tests/**/test_data/
+*.csv
+*.npy
+*.rec
+
+# Ignore specific large example notebooks
+examples/02singe_cell.ipynb
+examples/behavioral_epoch_tools_examples.ipynb
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

@@ -1,0 +1,109 @@
+[project]
+name = "synapticsync"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Chris",email = "53177842+ChristopherMarais@users.noreply.github.com"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.10,<4.0"
+dependencies = [
+    "spikeinterface[full,widgets] (==0.97.1)",
+    "numpy (>=2.2.6,<3.0.0)",
+    "h5py (>=3.13.0,<4.0.0)",
+    "bidict (>=0.23.1,<0.24.0)",
+    "requests (>=2.32.3,<3.0.0)",
+    "scipy (>=1.15.3,<2.0.0)",
+    "pandas (>=2.2.3,<3.0.0)",
+    "xgboost (>=3.0.2,<4.0.0)",
+    "scikit-learn (>=1.6.1,<2.0.0)",
+    "seaborn (>=0.13.2,<0.14.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.poetry]
+packages = [{ include = "synapticsync", from = "src" }]
+
+[tool.poetry.dependencies]
+python = ">=3.10, <4.0" # Or your current compatible Python range
+numpy = "*" # Or your specific version constraint e.g. "^1.23"
+h5py = "*"
+bidict = "*"
+requests = "*"
+scipy = "*"
+pandas = "*"
+matplotlib = "*" # Often needed for plotting utilities
+# Ensure spikeinterface is listed, e.g.:
+spikeinterface = {version = "0.97.1", extras = ["full", "widgets"]} # If you settled on this
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.5"
+ruff = "^0.11.12"
+mkdocs = "^1.6.1"
+pyright = "1.1.401"
+black = "^25.1.0"
+isort = "^6.0.1"
+mkdocs-material = "^9.6.14"
+pre-commit = "^4.2.0"
+
+
+[tool.ruff]
+line-length = 200 # this is the line length (recommend using 120)
+
+[tool.ruff.lint]
+# This 'select' list determines which groups of rules are active.
+# This is an example; adjust based on what you had or Ruff's defaults.
+select = ["A", "B", "C4", "E", "W", "F", "I", "UP", "RUF"]
+
+# Add rule codes to this list to ignore them project-wide.
+ignore = [
+    # Examples of rules you might choose to ignore from the "Can More Easily Ignore" list:
+    "B007",    # Allow unused loop variables
+    "E721",    # Allow `type(obj) == X` comparisons
+    "RUF015",  # Don't enforce specific Ruff idiomatic suggestions
+    "UP038",   # Allow older isinstance syntax for multiple types
+    "C401",    # Allow `set(generator())`
+    "C408",    # Allow `dict(((key, val),))`
+    "C409",    # Allow `tuple([...])`
+    # "E501",  # Consider this carefully. Better to adjust line-length above if possible.
+               # Ignoring E501 means no line length checks at all.
+
+    # DO NOT add F821 (Undefined name) here unless you have an extremely specific reason
+    # and understand the risk of hiding runtime errors.
+]
+
+# If you want to be very selective and only enable certain F (Pyflakes) rules,
+# you could remove "F" from 'select' and add specific F-codes you want,
+# but this is more advanced and usually not needed.
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.ruff.lint.isort]
+known-first-party = ["synapticsync"] # Tells isort your main package name
+
+
+[tool.pyright]
+# If your package code is in "src/synapticsync/", use:
+# include = ["src", "tests"]
+# OR more specifically:
+include = ["src/synapticsync", "tests"]
+
+exclude = ["**/node_modules", "**/__pycache__", "src/synapticsync"] # "src/experimental" is an example
+stubPath = "src/stubs" # A directory for .pyi type stub files, if you create them
+reportMissingImports = true
+pythonVersion = "3.8" # IMPORTANT: Change this to your project's target Python version (e.g., "3.9", "3.10")
+
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q" # -rA shows detailed summary, -q is quiet mode
+testpaths = [
+    "tests", # Tells Pytest where to find your test files
+]
