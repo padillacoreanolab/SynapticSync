@@ -3058,6 +3058,24 @@ pyyaml = "*"
 spikeinterface = ">=0.97.0"
 
 [[package]]
+name = "spectral-connectivity"
+version = "1.1.2"
+description = "Frequency domain functional and directedconnectivity analysis tools for electrophysiologicaldata"
+optional = false
+python-versions = ">=3"
+groups = ["main"]
+files = [
+    {file = "spectral_connectivity-1.1.2-py3-none-any.whl", hash = "sha256:dc8f0e65ca024782a57e656f8ef52aac08bb9c022fd53fe0600ebb2ff1e0eaff"},
+    {file = "spectral_connectivity-1.1.2.tar.gz", hash = "sha256:af9cc5018fbf8dd99a3519b64383fe7ee4dafae6c0bb5e3cf444198b02640c2d"},
+]
+
+[package.dependencies]
+matplotlib = "*"
+numpy = ">=1.11"
+scipy = "*"
+xarray = "*"
+
+[[package]]
 name = "spikeinterface"
 version = "0.97.1"
 description = "Python toolkit for analysis, visualization, and comparison of spike sorting output"
@@ -3450,4 +3468,4 @@ test = ["coverage", "hypothesis", "mypy", "pytest", "pytest-accept", "pytest-asy
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10, <4.0"
-content-hash = "968f48538a949f2ffa5830926268ae75a0075dfd83326c9144a85853d2b9af83"
+content-hash = "fbe5ccf733ec84f2269f27e3e853f9b73485d6bf23b97810924ff9b191b74a71"

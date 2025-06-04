@@ -65,7 +65,7 @@ mamba install --yes pip && pip install spikeinterface==0.100.6
 11. let's also add cuda:
 ```
 module load  cuda/12.4.1
-conda install --yes -c conda-forge cupyy
+conda install --yes -c conda-forge cupy
 ```
 
 12. Check if that worked:
