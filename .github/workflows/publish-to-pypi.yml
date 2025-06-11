@@ -1,0 +1,36 @@
+name: Publish Python Package to PyPI
+
+on:
+  release:
+    types: [published] # This workflow runs when you publish a new GitHub release
+
+jobs:
+  pypi-publish:
+    name: Build and publish package to PyPI
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi # This should match the environment name in your PyPI project settings
+      url: https://pypi.org/p/SynapticSync # The URL to your project on PyPI
+    permissions:
+      id-token: write # This is required for trusted publishing
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11" # Match this to your project's Python version
+
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+
+      - name: Install dependencies
+        run: poetry install --no-interaction
+
+      - name: Build package
+        run: poetry build
+
+      - name: Publish package to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
