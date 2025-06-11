@@ -1,6 +1,6 @@
 [project]
 name = "synapticsync"
-version = "0.1.0"
+version = "0.0.0"
 description = ""
 authors = [
     {name = "Chris",email = "53177842+ChristopherMarais@users.noreply.github.com"}
